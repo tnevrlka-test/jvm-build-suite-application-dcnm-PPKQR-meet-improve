@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: jvm-build-suite-component-ugqh
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: jvm-build-suite-component-ugqh
+    app.kubernetes.io/part-of: jvm-build-suite-application-dcnm
+  name: jvm-build-suite-component-ugqh
+  namespace: jvm-build-jtey-tenant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: jvm-build-suite-component-ugqh
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: jvm-build-suite-component-ugqh
+    spec:
+      containers:
+      - image: quay.io/rh_ee_tnevrlka/test-images:71e9244cc7c14ae7bcede8402ff4fb05
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8081
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        name: container-image
+        ports:
+        - containerPort: 8081
+        readinessProbe:
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          tcpSocket:
+            port: 8081
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 10m
+            memory: 50Mi
+status: {}
