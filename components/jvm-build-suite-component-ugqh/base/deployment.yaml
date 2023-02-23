@@ -23,7 +23,7 @@ spec:
         app.kubernetes.io/instance: jvm-build-suite-component-ugqh
     spec:
       containers:
-      - image: quay.io/rh_ee_tnevrlka/test-images:71e9244cc7c14ae7bcede8402ff4fb05
+      - image: quay.io/rh_ee_tnevrlka/test-images@sha256:dcd309084c2bc6f8da717c5be99fe958daca8966c057a69dff235945a304977d
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
