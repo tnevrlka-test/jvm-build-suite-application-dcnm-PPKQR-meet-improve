@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: jvm-build-suite-component-ugqh
+  namespace: jvm-build-jtey-tenant
+spec:
+  replicas: 1
+  selector: {}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: quay.io/rh_ee_tnevrlka/test-images@sha256:dcd309084c2bc6f8da717c5be99fe958daca8966c057a69dff235945a304977d
+        name: container-image
+        resources: {}
+status: {}
